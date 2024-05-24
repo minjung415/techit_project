@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail View</title>
+</head>
+<body>
+<h2 th:text="${board.title}">제목</h2>
+<div>
+    <strong>Name: </strong><span th:text="${board.name}">이름</span><br>
+    <strong>Content: </strong><span th:text="${board.content}">내용</span><br>
+    <strong>Created At: </strong><span th:text="${board.created_at.format(dateFormatter)}">등록일</span>
+</div>
+<div>
+    <a th:href="@{/list}">List</a>
+    <a th:href="@{/updateform(id=${board.id})}">Edit</a>
+    <a th:href="@{/deleteform(id=${board.id})}">Delete</a>
+</div>
+</body>
+</html>

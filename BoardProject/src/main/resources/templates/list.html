@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Board</title>
+    <link rel="stylesheet" th:href="@{/css/board.css}">
+</head>
+<body>
+<h1>게시판</h1>
+<table th:if="${!board.isEmpty()}">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Created At</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="content : ${board}">
+        <td th:text="${content.id}"></td>
+        <td th:text="${content.name}"></td>
+        <td>
+            <a th:href="@{/view(id=${content.id})}" th:text="${content.title}"></a>
+        </td>
+        <td th:text="${content.created_at.format(dateFormatter)}"></td>
+    </tr>
+    </tbody>
+</table>
+<div th:if="${board.totalPages > 1}">
+    <ul>
+        <li th:each="i : ${#numbers.sequence(1, board.totalPages)}">
+            <a th:href="@{/list(page=${i})}" th:text="${i}"></a>
+        </li>
+    </ul>
+</div>
+<a th:href="@{/writeform}">글쓰기</a>
+</body>
+</html>

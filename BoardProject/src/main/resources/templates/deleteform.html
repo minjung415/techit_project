@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Content</title>
+</head>
+<body>
+<h2>글 삭제</h2>
+<form th:action="@{/delete}" method="post">
+    <input type="hidden" name="id" th:value="${id}">
+    <label for="password">Password</label><br>
+    <input type="password" id="password" name="password" required><br>
+    <p th:text="${message}"></p>
+    <input type="submit" value="Delete">
+</form>
+</body>
+</html>
