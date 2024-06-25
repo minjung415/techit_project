@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: BlogProject
+  datasource:
+    url: jdbc:mysql://localhost:3306/blogproject_db
+    username: minj
+    password: minj1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
